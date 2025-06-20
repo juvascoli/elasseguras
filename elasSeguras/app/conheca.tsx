@@ -14,7 +14,7 @@ export default function Index() {
         source={require("@/assets/images/partial-react-logo.png")}
         style={styles.reactLogo}
       />
-      <Text>Elas Seguras</Text>
+      <Text>Conheca</Text>
     </View>
   );
 }

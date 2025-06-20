@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
 import { Image } from 'expo-image';
+import { Link } from "expo-router";
 
 export default function Index() {
   return (
@@ -15,6 +16,9 @@ export default function Index() {
         style={styles.reactLogo}
       />
       <Text>Elas Seguras</Text>
+      <Link href="/conheca" >
+        Começar
+      </Link>
     </View>
   );
 }
