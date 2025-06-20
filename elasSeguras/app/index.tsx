@@ -1,34 +1,42 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Image } from 'expo-image';
-import { Link } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
+import {
+  ButtonText,
+  Container,
+  LinkContainer,
+  LinkText,
+  Logo,
+  MainButton,
+  Titulo,
+} from "./componentes/ui/style";
 
 export default function Index() {
+  const navigation =
+    useNavigation();
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Image
-        source={require("@/assets/images/partial-react-logo.png")}
-        style={styles.reactLogo}
-      />
-      <Text>Elas Seguras</Text>
-      <Link href="/conheca" >
-        Começar
-      </Link>
-      <Link href="/camuflagem" >
-        Camuflagem teste
-      </Link>
-    </View>
+    <Container>
+      {/* Logo na parte superior */}
+      <Logo source={require("@/assets/images/logo.png")} resizeMode="contain" />
+      <Titulo>ELAS SEGURAS</Titulo>
+
+      {/* Botão principal no meio/inferior */}
+      <MainButton onPress={() => navigation.navigate("conheca")}>
+        <ButtonText>Começar</ButtonText>
+      </MainButton>
+
+      {/* Link na parte inferior */}
+      <LinkContainer onPress={() => console.log("Link pressionado")}>
+        <LinkText>Já tenho uma conta</LinkText>
+      </LinkContainer>
+
+    </Container>
   );
 }
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -40,6 +48,6 @@ const styles = StyleSheet.create({
     width: 290,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
   },
 });

@@ -1,7 +1,11 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Image } from 'expo-image';
+import { useNavigation } from "@react-navigation/native";
+import { Text, View } from "react-native";
+import { ButtonText, MainButton, Titulo } from "./componentes/ui/style";
+
 
 export default function Index() {
+    const navigation =
+      useNavigation();
   return (
     <View
       style={{
@@ -10,29 +14,14 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Image
-        source={require("@/assets/images/partial-react-logo.png")}
-        style={styles.reactLogo}
-      />
-      <Text>Conheca</Text>
+    <Titulo>Conhecendo o aplicativo</Titulo>
+      <Text>Aqui, você pode conversar com sigilo, buscar orientação sobre seus direitos, receber apoio emocional ou pedir ajuda de forma silenciosa.
+
+Para garantir sua segurança e personalizar o atendimento, vamos precisar de algumas informações.</Text>
+    <MainButton onPress={() => navigation.navigate("questionarioinicial/questionI001")}>
+            <ButtonText>Prosseguir</ButtonText>
+          </MainButton>
     </View>
+    
   );
 }
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
