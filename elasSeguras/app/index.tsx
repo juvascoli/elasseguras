@@ -19,6 +19,9 @@ export default function Index() {
       <Link href="/conheca" >
         Começar
       </Link>
+      <Link href="/camuflagem" >
+        Camuflagem teste
+      </Link>
     </View>
   );
 }
