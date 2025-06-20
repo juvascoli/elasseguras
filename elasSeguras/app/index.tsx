@@ -29,6 +29,7 @@ export default function Index() {
       <LinkContainer onPress={() => console.log("Link pressionado")}>
         <LinkText>Já tenho uma conta</LinkText>
       </LinkContainer>
+
     </Container>
   );
 }
