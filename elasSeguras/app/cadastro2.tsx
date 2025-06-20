@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
-import  { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function Cadastro2(){
 const navigation = useNavigation<any>();
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 container:{
    padding: 24,
    flex: 1,
-   backgroundColor: '#fff',
+   backgroundColor: '#E5E5E5',
    justifyContent: 'center'
    },
   title: { 
@@ -38,7 +38,7 @@ container:{
     marginBottom: 16 
   },
   input: {
-     backgroundColor: '#eee',
+     backgroundColor: '#fff',
      padding: 12, 
      borderRadius: 8, 
      marginBottom: 10 

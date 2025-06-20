@@ -1,7 +1,7 @@
 
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function medidaProtetiva() {
 const navigation = useNavigation<any>();
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 24, 
     flex: 1, 
-    backgroundColor: '#fff', 
+    backgroundColor: '#E5E5E5', 
     justifyContent: 'center' 
   },
   title: { 
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
    },
   optionGreen: { 
     padding: 14, 
-    backgroundColor: '#e2f8e5',
+    backgroundColor: '#fff',
     borderRadius: 8, 
     marginBottom: 10 
   },
   optionRed: { 
     padding: 14, 
-    backgroundColor: '#fde2e2',
+    backgroundColor: '#fff',
     borderRadius: 8 },
   optionText: {
      fontWeight: 'bold', 

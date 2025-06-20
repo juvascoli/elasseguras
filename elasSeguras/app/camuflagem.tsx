@@ -1,7 +1,6 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function CamuflagemScreen() {
 const navigation = useNavigation<any>();
@@ -13,7 +12,7 @@ const navigation = useNavigation<any>();
 
   const handleNaoPreciso = () => {
     Alert.alert('Você escolheu não camuflar agora.');
-    navigation.navigate('cadastro') 
+    navigation.navigate('cadastro1') 
   };
 
   return (
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#E5E5E5', 
   },
   title: {
     fontSize: 22,

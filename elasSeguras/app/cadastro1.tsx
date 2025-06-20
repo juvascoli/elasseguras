@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 export default function Cadastro() {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
      padding: 24, 
      flex: 1,
-    backgroundColor: '#fff', 
+    backgroundColor: '#E5E5E5',
     justifyContent: 'center'
    },
   title: { 
