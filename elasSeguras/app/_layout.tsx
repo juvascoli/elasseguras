@@ -9,6 +9,9 @@ export default function RootLayout() {
       <Stack.Screen name="questionarioinicial/questionI002" options={{ headerShown: false }} />
       <Stack.Screen name="questionarioinicial/questionI003" options={{ headerShown: false }} />
       <Stack.Screen name="cadastroProtetiva" options={{ headerShown: false }} />
+      <Stack.Screen name="home" options={{ headerShown: false }} />
+      <Stack.Screen name="homeFake" options={{ headerShown: false }} />
+
 
     </Stack>
   );
