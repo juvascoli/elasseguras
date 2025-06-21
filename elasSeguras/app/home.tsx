@@ -2,12 +2,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Container } from "./componentes/ui/style";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <Container >
       {/* Header Roxo */}
       <LinearGradient colors={["#a64bf4", "#a64bf4"]} style={styles.header}>
         <View style={styles.headerContent}>
@@ -55,7 +56,7 @@ export default function HomeScreen() {
         <Text style={styles.optionIcon}>📄</Text>
         <Text style={styles.optionText}>Meus relatos</Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 }
 

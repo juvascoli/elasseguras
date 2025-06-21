@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { View } from "react-native";
 import {
   ButtonQuestionText,
+  Container,
   QuestionButton,
   Titulo,
 } from "../componentes/ui/style";
@@ -18,30 +19,31 @@ export default function Index() {
   };
 
   return (
-    <View
+    <Container
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <Titulo>Você está segura </Titulo>
-      <Titulo>neste momento?</Titulo>
-      <QuestionButton>
-        <ButtonQuestionText onPress={() => handlePress(1)}>
-          🙂 Sim, estou segura.
-        </ButtonQuestionText>
-      </QuestionButton>
-      <QuestionButton>
-        <ButtonQuestionText onPress={() => handlePress(3)}>
-          😭 Não, o agressor está por perto
-        </ButtonQuestionText>
-      </QuestionButton>
-      <QuestionButton>
-        <ButtonQuestionText onPress={() => handlePress(2)}>
-          😥 Sim, por enquanto
-        </ButtonQuestionText>
-      </QuestionButton>
-    </View>
+      <Titulo style={{ flex: 1 }}>Você está segura neste momento?</Titulo>
+      <View style={{ flex: 1, width: "100%" }}>
+        <QuestionButton>
+          <ButtonQuestionText onPress={() => handlePress(1)}>
+            🙂 Sim, estou segura.
+          </ButtonQuestionText>
+        </QuestionButton>
+        <QuestionButton>
+          <ButtonQuestionText onPress={() => handlePress(3)}>
+            😭 Não, o agressor está por perto
+          </ButtonQuestionText>
+        </QuestionButton>
+        <QuestionButton>
+          <ButtonQuestionText onPress={() => handlePress(2)}>
+            😥 Sim, por enquanto
+          </ButtonQuestionText>
+        </QuestionButton>
+      </View>
+    </Container>
   );
 }

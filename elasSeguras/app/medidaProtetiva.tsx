@@ -1,57 +1,51 @@
-
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Container, Descritivo, Titulo } from "./componentes/ui/style";
 
 export default function medidaProtetiva() {
-const navigation = useNavigation<any>();
+  const navigation = useNavigation<any>();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Você possui medida protetiva?</Text>
-      <Text style={styles.subtitle}>
+    <Container>
+      <Titulo style={{ flex: 1 }}>Você possui medida protetiva?</Titulo>
+      <Descritivo style={{flex:1}}>
         Irá permitir que você ative imediatamente a emergência.
-      </Text>
+      </Descritivo>
+      <View style={{ flex: 4 , width:'100%'}}>
+        <TouchableOpacity
+          style={styles.optionGreen}
+          onPress={() => {
+            navigation.navigate("uploadMedida");
+          }}
+        >
+          <Text style={styles.optionText}>✅ Sim</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity style={styles.optionGreen}  onPress={() => {
-  navigation.navigate('uploadMedida')}}>
-        <Text style={styles.optionText}>✅ Sim</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.optionRed} onPress={() => navigation.navigate("home")}>
-        <Text style={styles.optionText}>❌ Não</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity
+          style={styles.optionRed}
+          onPress={() => navigation.navigate("cadastro1")}
+        >
+          <Text style={styles.optionText}>❌ Não</Text>
+        </TouchableOpacity>
+      </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 24, 
-    flex: 1, 
-    backgroundColor: '#E5E5E5', 
-    justifyContent: 'center' 
+  optionGreen: {
+    padding: 14,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    marginBottom: 10,
   },
-  title: { 
-    fontSize: 18, 
-    fontWeight: 'bold', 
-    marginBottom: 12 
+  optionRed: {
+    padding: 14,
+    backgroundColor: "#fff",
+    borderRadius: 8,
   },
-  subtitle: {
-    fontSize: 14, 
-    color: '#555', 
-    marginBottom: 20
-   },
-  optionGreen: { 
-    padding: 14, 
-    backgroundColor: '#fff',
-    borderRadius: 8, 
-    marginBottom: 10 
-  },
-  optionRed: { 
-    padding: 14, 
-    backgroundColor: '#fff',
-    borderRadius: 8 },
   optionText: {
-     fontWeight: 'bold', 
-     fontSize: 16 }
+    fontWeight: "bold",
+    fontSize: 16,
+  },
 });

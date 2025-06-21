@@ -10,13 +10,14 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { Container } from "./componentes/ui/style";
 
 const mainDishes = [
   {
     id: "1",
     name: "Pizza de mussarela",
     price: "R$ 24,00",
-    img: "@/assets/images/pizza01.jpg",
+    img: "./assets/images/pizza01.jpg",
   },
   {
     id: "2",
@@ -45,13 +46,13 @@ export default function HomeFake() {
   const navigation = useNavigation();
   const renderItem = ({ item }) => (
     <View style={styles.card}>
-      <Image source={item.img} style={styles.image} />
+      <Image source={{ uri: item.img }} style={styles.image} />
       <Text style={styles.cardText}>{item.name}</Text>
       <Text style={styles.cardPrice}>{item.price}</Text>
     </View>
   );
   return (
-    <View style={styles.container}>
+    <Container >
       <LinearGradient colors={["#f78c1f", "#f78c1f"]} style={styles.header}>
         <View style={styles.headerContent}>
           <View style={styles.iconCircle}>
@@ -65,7 +66,6 @@ export default function HomeFake() {
             <TouchableOpacity onPress={() => navigation.navigate("home")}>
               <Text style={styles.headerIcon}>↕️</Text>
             </TouchableOpacity>
-            <Text style={styles.headerIcon}>⚙️</Text>
           </View>
         </View>
       </LinearGradient>
@@ -91,7 +91,7 @@ export default function HomeFake() {
           renderItem={renderItem}
         />
       </ScrollView>
-    </View>
+    </Container>
   );
 }
 

@@ -1,36 +1,49 @@
-import { Picker } from '@react-native-picker/picker';
-import { useNavigation } from '@react-navigation/native';
-import * as ImagePicker from 'expo-image-picker';
-import { useState } from 'react';
-import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Picker } from "@react-native-picker/picker";
+import { useNavigation } from "@react-navigation/native";
+import * as ImagePicker from "expo-image-picker";
+import { useState } from "react";
+import {
+  Image,
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import {
+  ButtonText,
+  Container,
+  MainButton,
+  Titulo,
+} from "./componentes/ui/style";
 
 export default function contatoConfiavel() {
-const navigation = useNavigation<any>();
+  const navigation = useNavigation<any>();
 
-const [nome, setNome] = useState('');
-const [email, setEmail] = useState('');
-const [telefone, setTelefone] = useState('');
-const [parentesco, setParentesco] = useState('');
-const [foto, setFoto] = useState<string | null>(null);
-const [mostrarResumo, setMostrarResumo] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [parentesco, setParentesco] = useState("");
+  const [foto, setFoto] = useState<string | null>(null);
+  const [mostrarResumo, setMostrarResumo] = useState(false);
 
-const selecionarFoto = async () => {
-const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+  const selecionarFoto = async () => {
+    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (permission.granted === false) return;
 
- const result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [1, 1],
       quality: 0.5,
     });
     if (!result.canceled) {
-  const uri = result.assets[0].uri; 
-  setFoto(uri);
-}
-
-  }
-const handleAdicionar = () => {
+      const uri = result.assets[0].uri;
+      setFoto(uri);
+    }
+  };
+  const handleAdicionar = () => {
     if (nome && email && telefone && parentesco) {
       setMostrarResumo(true);
     } else {
@@ -39,38 +52,53 @@ const handleAdicionar = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Preencha os dados do seu contato mais confiável</Text>
+    <Container>
+      <Titulo>Preencha os dados do seu contato mais confiável</Titulo>
+      <View style={{ width: "100%", flex: 1 }}>
+        <TouchableOpacity onPress={selecionarFoto} style={styles.fotoBox}>
+          {foto ? (
+            <Image source={{ uri: foto }} style={styles.foto} />
+          ) : (
+            <Text style={styles.fotoTexto}>📷 Enviar foto</Text>
+          )}
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={selecionarFoto} style={styles.fotoBox}>
-        {foto ? (
-          <Image source={{ uri: foto }} style={styles.foto} />
-        ) : (
-          <Text style={styles.fotoTexto}>📷 Enviar foto</Text>
-        )}
-      </TouchableOpacity>
+        <TextInput
+          placeholder="Nome"
+          style={styles.input}
+          value={nome}
+          onChangeText={setNome}
+        />
+        <TextInput
+          placeholder="E-mail"
+          style={styles.input}
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          placeholder="Telefone"
+          style={styles.input}
+          value={telefone}
+          onChangeText={setTelefone}
+        />
 
-      <TextInput placeholder="Nome" style={styles.input} value={nome} onChangeText={setNome} />
-      <TextInput placeholder="E-mail" style={styles.input} value={email} onChangeText={setEmail} />
-      <TextInput placeholder="Telefone" style={styles.input} value={telefone} onChangeText={setTelefone} />
-
-      <View style={styles.pickerContainer}>
-        <Picker
-          selectedValue={parentesco}
-          onValueChange={(itemValue) => setParentesco(itemValue)}
-          style={styles.picker}
-        >
-          <Picker.Item label="Parentesco" value="" />
-          <Picker.Item label="Mãe" value="mãe" />
-          <Picker.Item label="Pai" value="pai" />
-          <Picker.Item label="Amigo(a)" value="amigo" />
-          <Picker.Item label="Outro" value="outro" />
-        </Picker>
+        <View style={styles.pickerContainer}>
+          <Picker
+            selectedValue={parentesco}
+            onValueChange={(itemValue) => setParentesco(itemValue)}
+            style={styles.picker}
+          >
+            <Picker.Item label="Parentesco" value="" />
+            <Picker.Item label="Mãe" value="mãe" />
+            <Picker.Item label="Pai" value="pai" />
+            <Picker.Item label="Amigo(a)" value="amigo" />
+            <Picker.Item label="Outro" value="outro" />
+          </Picker>
+        </View>
       </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleAdicionar}>
-        <Text style={styles.buttonText}>Adicionar</Text>
-      </TouchableOpacity>
+      <MainButton onPress={handleAdicionar}>
+        <ButtonText>Adicionar</ButtonText>
+      </MainButton>
 
       {/* Modal de resumo */}
       <Modal visible={mostrarResumo} transparent animationType="slide">
@@ -83,99 +111,94 @@ const handleAdicionar = () => {
             <Text style={styles.modalText}>{telefone}</Text>
             <Text style={styles.modalText}>{parentesco}</Text>
             <TouchableOpacity
-            style={styles.button}
-           onPress={() => {
-  navigation.navigate('telaContatoResumo', {
-    nome,
-    email,
-    telefone,
-    parentesco,
-    foto,
-  });
-  setMostrarResumo(false);
-}}>
-  <Text style={styles.buttonText}>Confirmar</Text>
-</TouchableOpacity>
-
+              style={styles.button}
+              onPress={() => {
+                navigation.navigate("telaContatoResumo", {
+                  nome,
+                  email,
+                  telefone,
+                  parentesco,
+                  foto,
+                });
+                setMostrarResumo(false);
+              }}
+            >
+              <Text style={styles.buttonText}>Confirmar</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity onPress={() => setMostrarResumo(false)}>
-              <Text style={{ color: '#A146F3', marginTop: 10 }}>✖ Fechar</Text>
+              <Text style={{ color: "#A146F3", marginTop: 10 }}>✖ Fechar</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-    </View>
+    </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    padding: 24, 
-    flex: 1, 
-    backgroundColor: '#E5E5E5'
-   },
-  title: { fontSize: 18, fontWeight: 'bold', marginBottom: 16 },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 12,
     borderRadius: 8,
-    marginBottom: 10
+    marginBottom: 10,
+    width: "100%",
   },
   pickerContainer: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 8,
-    overflow: 'hidden',
+    overflow: "hidden",
     marginBottom: 16,
   },
   picker: {
     height: 50,
-    width: '100%',
+    width: "100%",
   },
   button: {
-    backgroundColor: '#A146F3',
+    backgroundColor: "#A146F3",
     padding: 14,
     borderRadius: 8,
-    alignItems: 'center',
-    marginTop: 10
+    alignItems: "center",
+    marginTop: 10,
   },
-  buttonText: { color: '#fff', fontWeight: 'bold' },
+  buttonText: { color: "#fff", fontWeight: "bold" },
   fotoBox: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: "#f2f2f2",
     height: 100,
     borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 12
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
   },
-  fotoTexto: { fontSize: 16, color: '#777' },
+  fotoTexto: { fontSize: 16, color: "#777" },
   foto: { width: 100, height: 100, borderRadius: 50 },
   modalContainer: {
     flex: 1,
-    backgroundColor: '#000000aa',
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: "#000000aa",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalContent: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 24,
     borderRadius: 10,
-    alignItems: 'center',
-    width: '80%'
+    alignItems: "center",
+    width: "80%",
   },
   modalTitle: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 18,
-    marginBottom: 12
+    marginBottom: 12,
   },
   modalText: {
     fontSize: 15,
-    marginVertical: 2
+    marginVertical: 2,
   },
   modalImage: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    marginBottom: 10
-  }
+    marginBottom: 10,
+  },
 });

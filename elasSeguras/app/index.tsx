@@ -15,7 +15,7 @@ export default function Index() {
     useNavigation();
 
   return (
-    <Container>
+    <Container style={{ alignItems: 'center', backgroundColor:'#fff'}}>
       {/* Logo na parte superior */}
       <Logo source={require("@/assets/images/logo.png")} resizeMode="contain" />
       <Titulo>ELAS SEGURAS</Titulo>
@@ -26,10 +26,10 @@ export default function Index() {
       </MainButton>
 
       
-      {/* Botão principal no meio/inferior */}
+      {/* Botão principal no meio/inferior
       <MainButton onPress={() => navigation.navigate("camuflagem")}>
         <ButtonText>camuflagem</ButtonText>
-      </MainButton>
+      </MainButton> */}
 
       {/* Link na parte inferior */}
       <LinkContainer onPress={() => console.log("Link pressionado")}>
