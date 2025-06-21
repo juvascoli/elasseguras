@@ -3,6 +3,7 @@ import { View } from "react-native";
 import {
   ButtonQuestionText,
   Container,
+  IconEmoji,
   QuestionButton,
   Titulo,
 } from "../componentes/ui/style";
@@ -14,10 +15,10 @@ export default function Index() {
   const handlePress = (pPeso: number) => {
     const pesoFinal = pPeso + peso;
     console.log("Peso final", pesoFinal);
-    if (pesoFinal > 2) {
+    if (pesoFinal > 3) {
       navigation.navigate("medidaProtetiva");
     } else {
-      navigation.navigate("preCadastro");
+      navigation.navigate("cadastro1");
     }
   };
   return (
@@ -32,22 +33,22 @@ export default function Index() {
       <View style={{ flex: 1, width: "100%" }}>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(1)}>
-            😨 Estou sendo perseguida
+            <IconEmoji>😨</IconEmoji> Estou sendo perseguida
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(3)}>
-            🤕 Fui agredida fisicamente
+            <IconEmoji>🤕</IconEmoji> Fui agredida fisicamente
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(2)}>
-            😟 O agressor está por perto
+            <IconEmoji>😟</IconEmoji> O agressor está por perto
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(2)}>
-            ❓ Não sei explicar
+            <IconEmoji>❓</IconEmoji> Não sei explicar
           </ButtonQuestionText>
         </QuestionButton>
       </View>

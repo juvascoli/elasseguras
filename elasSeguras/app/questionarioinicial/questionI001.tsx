@@ -4,6 +4,7 @@ import { View } from "react-native";
 import {
   ButtonQuestionText,
   Container,
+  IconEmoji,
   QuestionButton,
   Titulo,
 } from "../componentes/ui/style";
@@ -22,25 +23,25 @@ export default function Index() {
       }}
     >
       <Titulo>Por que está usando esse aplicativo?</Titulo>
-      <View style={{ flex: 1,width:'100%' }}>
+      <View style={{ flex: 1, width: "100%" }}>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(4)}>
-            🆘 Estou em situação de risco
+            <IconEmoji>🆘</IconEmoji>Estou em situação de risco
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(3)}>
-            📚 Quero apoio emocional e orientação
+            <IconEmoji>📚</IconEmoji> Quero apoio emocional e orientação
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(2)}>
-            🧠 Saber sobre meus direitos
+            <IconEmoji>🧠</IconEmoji> Saber sobre meus direitos
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(0)}>
-            👀 Apenas conhecendo o aplicativo
+           <IconEmoji>👀</IconEmoji> Apenas conhecendo o aplicativo
           </ButtonQuestionText>
         </QuestionButton>
       </View>

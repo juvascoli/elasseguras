@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
   ButtonText,
   Container,
@@ -11,30 +11,31 @@ import {
 } from "./componentes/ui/style";
 
 export default function Index() {
-  const navigation =
-    useNavigation();
+  const navigation = useNavigation();
 
   return (
-    <Container style={{ alignItems: 'center', backgroundColor:'#fff'}}>
-      {/* Logo na parte superior */}
-      <Logo source={require("@/assets/images/logo.png")} resizeMode="contain" />
-      <Titulo>ELAS SEGURAS</Titulo>
+    <Container style={{ alignItems: "center", backgroundColor: "#fff" }}>
+      <View style={{ flex: 3 , alignContent:"flex-start"}}>
+        <Logo
+          source={require("@/assets/images/logo.png")}
+          resizeMode="contain"
+        />
+        <Titulo
+          style={{ fontWeight: "800", textAlign: "center", color: "#102B37" }}
+        >
+          ELAS {"\n"}
+          SEGURAS
+        </Titulo>
+      </View>
+      <View style={{ flex: 1 , width:"100%", alignItems:"center"}}>
+        <MainButton onPress={() => navigation.navigate("conheca")}>
+          <ButtonText>Começar</ButtonText>
+        </MainButton>
 
-      {/* Botão principal no meio/inferior */}
-      <MainButton onPress={() => navigation.navigate("conheca")}>
-        <ButtonText>Começar</ButtonText>
-      </MainButton>
-
-    
-
-      {/* Link na parte inferior */}
-      <LinkContainer onPress={() => navigation.navigate("login")}>
-        <LinkText>Já tenho uma conta</LinkText>
-      </LinkContainer>
-
-
-
-
+        <LinkContainer onPress={() => navigation.navigate("login")}>
+          <LinkText>Já tenho uma conta</LinkText>
+        </LinkContainer>
+      </View>
     </Container>
   );
 }

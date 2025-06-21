@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Container } from './componentes/ui/style';
 
 export default function RelatarIncidente() {
   const navigation = useNavigation();
@@ -9,7 +10,7 @@ export default function RelatarIncidente() {
   const [descricao, setDescricao] = useState('');
 
   return (
-    <View style={styles.container}>
+    <Container >
 
       <Text style={styles.title}>Relatar Incidente</Text>
 
@@ -40,7 +41,7 @@ export default function RelatarIncidente() {
       <TouchableOpacity style={styles.enviarButton} onPress={() => navigation.navigate('home')}>
         <Text style={styles.enviarText}>Enviar</Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 }
 

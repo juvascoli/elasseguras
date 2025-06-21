@@ -42,8 +42,8 @@ export const LinkText = styled.Text`
 `;
 
 export const Titulo = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
   margin-botton: 10px;
   margin-top:30px;
   flex: 1;
@@ -54,20 +54,25 @@ export const QuestionButton = styled.TouchableOpacity`
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 0px;
-  width: 90%;
+  width: 95%;
   border-radius: 8px;
   justify-content: center;
   align-items: left;
   margin-bottom: 10px;
+  text-align-vertical: center;
 `;
 export const ButtonQuestionText = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
-`;
-
-export const Descritivo = styled.Text`
   font-size: 16px;
+  font-weight: 400;
+`;
+export const IconEmoji = styled.Text`
+  font-size: 32px;
+  font-weight: 700;
+`;
+export const Descritivo = styled.Text`
+  font-size: 20px;
   flex: 2;
-  color: #444;
+  color: #333333;
   margin-bottom: 20px;
+  font-weight: 400;
 `;

@@ -3,6 +3,7 @@ import { View } from "react-native";
 import {
   ButtonQuestionText,
   Container,
+  IconEmoji,
   QuestionButton,
   Titulo,
 } from "../componentes/ui/style";
@@ -30,17 +31,17 @@ export default function Index() {
       <View style={{ flex: 1, width: "100%" }}>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(1)}>
-            🙂 Sim, estou segura.
+            <IconEmoji>🙂</IconEmoji> Sim, estou segura.
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(3)}>
-            😭 Não, o agressor está por perto
+            <IconEmoji>😭</IconEmoji> Não, o agressor está por perto
           </ButtonQuestionText>
         </QuestionButton>
         <QuestionButton>
           <ButtonQuestionText onPress={() => handlePress(2)}>
-            😥 Sim, por enquanto
+            <IconEmoji>😥</IconEmoji> Sim, por enquanto
           </ButtonQuestionText>
         </QuestionButton>
       </View>

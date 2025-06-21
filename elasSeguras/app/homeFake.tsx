@@ -2,9 +2,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "expo-router";
 import React from "react";
 import {
-  FlatList,
   Image,
-  ScrollView,
+  SectionList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,47 +11,59 @@ import {
 } from "react-native";
 import { Container } from "./componentes/ui/style";
 
-const mainDishes = [
-  {
-    id: "1",
-    name: "Pizza de mussarela",
-    price: "R$ 24,00",
-    img: "./assets/images/pizza01.jpg",
-  },
-  {
-    id: "2",
-    name: "Pizza de mussarela",
-    price: "R$ 24,00",
-    img: "@/assets/images/pizza02.jpg",
-  },
-];
-
-const veganDishes = [
-  {
-    id: "3",
-    name: "Pizza de mussarela",
-    price: "R$ 24,00",
-    img: "@/assets/images/pizza03.jpg",
-  },
-  {
-    id: "4",
-    name: "Pizza de mussarela",
-    price: "R$ 24,00",
-    img: "@/assets/images/pizza04.jpg",
-  },
-];
-
 export default function HomeFake() {
   const navigation = useNavigation();
+  const pizzaImage01 = require("@/assets/images/pizza01.jpg");
+  const pizzaImage02 = require("@/assets/images/pizza02.jpg");
+  const pizzaImage03 = require("@/assets/images/pizza03.jpg");
+  const pizzaImage04 = require("@/assets/images/pizza04.jpg");
+  const DATA = [
+    {
+      title: "Pratos principais",
+      data: [[
+        {
+          id: "1",
+          name: "Pizza de lombinho",
+          price: "R$ 59,99",
+          img: pizzaImage01,
+        },
+        { id: "2", name: "Pizza de 1/2", price: "R$ 59,99", img: pizzaImage02 },]
+      ],
+    },
+    {
+      title: "Pizzas veganas",
+      data: [
+       [ {
+          id: "3",
+          name: "Pizza de calabresa",
+          price: "R$ 49,99",
+          img: pizzaImage03,
+        },
+        {
+          id: "4",
+          name: "Pizza de portuguesa",
+          price: "R$ 59,99",
+          img: pizzaImage04,
+        }],
+      ],
+    },
+  ];
   const renderItem = ({ item }) => (
-    <View style={styles.card}>
-      <Image source={{ uri: item.img }} style={styles.image} />
-      <Text style={styles.cardText}>{item.name}</Text>
-      <Text style={styles.cardPrice}>{item.price}</Text>
+    <View style={styles.row}>
+      {item.map((pizza) => (
+        <View key={pizza.id} style={styles.card}>
+          <Image source={pizza.img} style={styles.image} />
+          <Text style={styles.cardText}>{pizza.name}</Text>
+          <Text style={styles.cardPrice}>{pizza.price}</Text>
+        </View>
+      ))}
     </View>
   );
+  const renderSectionHeader = ({ section: { title } }) => (
+    <Text style={styles.sectionTitle}>{title}</Text>
+  );
   return (
-    <Container >
+    <Container>
       <LinearGradient colors={["#f78c1f", "#f78c1f"]} style={styles.header}>
         <View style={styles.headerContent}>
           <View style={styles.iconCircle}>
@@ -70,27 +81,15 @@ export default function HomeFake() {
         </View>
       </LinearGradient>
 
-      <ScrollView>
-        <Text style={styles.menuTitle}>Veja nosso cardápio</Text>
+      <Text style={styles.menuTitle}>Veja nosso cardápio</Text>
 
-        <Text style={styles.sectionTitle}>Pratos principais</Text>
-        <FlatList
-          data={mainDishes}
-          horizontal={false}
-          numColumns={2}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-        />
-
-        <Text style={styles.sectionTitle}>Pizzas veganas</Text>
-        <FlatList
-          data={veganDishes}
-          horizontal={false}
-          numColumns={2}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-        />
-      </ScrollView>
+      <SectionList
+        sections={DATA}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={renderItem}
+        renderSectionHeader={renderSectionHeader}
+        contentContainerStyle={{ paddingBottom: 20 }}
+      />
     </Container>
   );
 }
@@ -134,4 +133,9 @@ const styles = StyleSheet.create({
   cardText: { fontSize: 14 },
   menuTitle: { fontSize: 16, fontWeight: "bold", marginVertical: 10 },
   sectionTitle: { fontSize: 14, fontWeight: "bold", marginVertical: 5 },
+  image: { width: 100, height: 100, borderRadius: 8, marginBottom: 5 },
+    row: { flexDirection: 'row', justifyContent: 'space-between' },
+      cardPrice: { fontSize: 12, color: '#333' }
+
+
 });

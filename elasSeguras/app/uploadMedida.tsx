@@ -14,11 +14,12 @@ import { CheckBox } from "react-native-web";
 import {
   ButtonText,
   Container,
+  Descritivo,
   MainButton,
   Titulo,
 } from "./componentes/ui/style";
 
-export default function App() {
+export default function UploadMedida() {
   const [documento, setDocumento] = useState<DocumentPickerAsset | null>(null);
   const navigation = useNavigation<any>();
   const [step, setStep] = useState(1);
@@ -60,7 +61,7 @@ export default function App() {
       </View>
       {documento && <Text style={styles.pdfName}>{documento.name}</Text>}
 
-      <MainButton onPress={() => setStep(2)}>
+      <MainButton onPress={() => setStep(3)}>
         <ButtonText>Confirmar</ButtonText>
       </MainButton>
     </Container>
@@ -88,9 +89,8 @@ export default function App() {
   const renderStep3 = () => (
     <Container>
       <Titulo>Código de validação</Titulo>
+      <Descritivo>Para sua segurança enviamos um código de confirmação para </Descritivo>
       <View style={{ width: "100%", flex: 1 }}>
-        {/* <Text style={styles.smsCode}>SMS: Os números do código são 456183</Text> */}
-
         <View style={styles.codeRow}>
           {codigo.map((char, index) => (
             <TextInput
@@ -124,8 +124,11 @@ export default function App() {
         style={styles.successImage}
         resizeMode="contain"
       />
+      <MainButton onPress={() => navigation.navigate("panico")}>
+        <ButtonText>Socorro!</ButtonText>
+      </MainButton>
       <MainButton onPress={() => navigation.navigate("home")}>
-        <ButtonText>Confirmar</ButtonText>
+        <ButtonText>Usar o aplicativo</ButtonText>
       </MainButton>
     </Container>
   );
