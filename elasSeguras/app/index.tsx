@@ -25,11 +25,7 @@ export default function Index() {
         <ButtonText>Começar</ButtonText>
       </MainButton>
 
-      
-      {/* Botão principal no meio/inferior */}
-      <MainButton onPress={() => navigation.navigate("camuflagem")}>
-        <ButtonText>camuflagem</ButtonText>
-      </MainButton>
+    
 
       {/* Link na parte inferior */}
       <LinkContainer onPress={() => console.log("Link pressionado")}>
