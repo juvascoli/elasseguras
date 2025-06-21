@@ -28,7 +28,7 @@ export default function Index() {
     
 
       {/* Link na parte inferior */}
-      <LinkContainer onPress={() => console.log("Link pressionado")}>
+      <LinkContainer onPress={() => navigation.navigate("login")}>
         <LinkText>Já tenho uma conta</LinkText>
       </LinkContainer>
 
