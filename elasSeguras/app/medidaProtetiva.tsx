@@ -1,7 +1,7 @@
 
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function medidaProtetiva() {
 const navigation = useNavigation<any>();
@@ -17,7 +17,7 @@ const navigation = useNavigation<any>();
         <Text style={styles.optionText}>✅ Sim</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.optionRed}>
+      <TouchableOpacity style={styles.optionRed} onPress={() => navigation.navigate("home")}>
         <Text style={styles.optionText}>❌ Não</Text>
       </TouchableOpacity>
     </View>

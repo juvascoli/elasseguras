@@ -14,7 +14,7 @@ export default function Index() {
     const pesoFinal = pPeso + peso;
     console.log("Peso final", pesoFinal);
     if (pesoFinal > 2) {
-      navigation.navigate("cadastroProtetiva");
+      navigation.navigate("medidaProtetiva");
     } else {
       navigation.navigate("preCadastro");
     }

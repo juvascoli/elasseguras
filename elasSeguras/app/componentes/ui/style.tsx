@@ -4,10 +4,10 @@ import styled from "styled-components/native";
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
-  justify-content: space-between;
+ 
   align-items: center;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 24px;
 `;
 
 export const Logo = styled(Image)`
@@ -17,13 +17,11 @@ export const Logo = styled(Image)`
 `;
 
 export const MainButton = styled.TouchableOpacity`
-  background-color: #007bff;
-  padding: 15px 30px;
-  border-radius: 10px;
-  margin-bottom: 0px;
-    width: 75%;
-  justify-content: center;
- align-items: center;
+   background-color: #A146F3;
+    padding: 14px;
+    border-radius: 8px;
+    align-items: center;
+    margin-top: 10px;
 `;
 
 export const ButtonText = styled.Text`
