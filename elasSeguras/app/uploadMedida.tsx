@@ -1,4 +1,4 @@
-import CheckBox from '@react-native-community/checkbox';
+import { CheckBox } from 'react-native-web';
 import { useNavigation } from '@react-navigation/native';
 import type { DocumentPickerAsset } from 'expo-document-picker';
 import * as DocumentPicker from 'expo-document-picker';
