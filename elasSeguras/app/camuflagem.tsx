@@ -13,7 +13,7 @@ const navigation = useNavigation<any>();
 
   const handleNaoPreciso = () => {
     Alert.alert('Você escolheu não camuflar agora.');
-    navigation.navigate('cadastro') 
+    navigation.navigate('cadastro1') 
   };
 
   return (
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#E5E5E5', 
   },
   title: {
     fontSize: 22,

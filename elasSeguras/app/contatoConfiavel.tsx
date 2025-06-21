@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Modal } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker';
+import { useState } from 'react';
+import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function contatoConfiavel() {
 const navigation = useNavigation<any>();
@@ -109,10 +109,14 @@ const handleAdicionar = () => {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 24, flex: 1, backgroundColor: '#fff' },
+  container: { 
+    padding: 24, 
+    flex: 1, 
+    backgroundColor: '#E5E5E5'
+   },
   title: { fontSize: 18, fontWeight: 'bold', marginBottom: 16 },
   input: {
-    backgroundColor: '#eee',
+    backgroundColor: '#fff',
     padding: 12,
     borderRadius: 8,
     marginBottom: 10

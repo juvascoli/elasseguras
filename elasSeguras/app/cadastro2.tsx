@@ -1,12 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function Cadastro2() {
   const navigation = useNavigation<any>();
@@ -58,32 +52,30 @@ export default function Cadastro2() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 24,
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 16,
+container:{
+   padding: 24,
+   flex: 1,
+   backgroundColor: '#E5E5E5',
+   justifyContent: 'center'
+   },
+  title: { 
+    fontSize: 18, 
+    fontWeight: 'bold', 
+    marginBottom: 16 
   },
   input: {
-    backgroundColor: "#eee",
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 10,
-  },
-  button: {
-    backgroundColor: "#A146F3",
-    padding: 14,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  buttonText: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
+     backgroundColor: '#fff',
+     padding: 12, 
+     borderRadius: 8, 
+     marginBottom: 10 
+    },
+  button: { backgroundColor: '#A146F3', 
+    padding: 14, 
+    borderRadius: 8, 
+    alignItems: 'center',
+     marginTop: 10 },
+  buttonText: { 
+    color: '#fff', 
+    fontWeight: 'bold' 
+  }
 });
