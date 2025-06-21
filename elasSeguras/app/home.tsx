@@ -32,7 +32,7 @@ export default function HomeScreen() {
       <Text style={styles.questionText}>O que você precisa?</Text>
 
       {/* Opções */}
-      <TouchableOpacity style={styles.option}>
+      <TouchableOpacity onPress={() => navigation.navigate('relatarIncidente')} style={styles.option}>
         <Text style={styles.optionIcon}>📝</Text>
         <Text style={styles.optionText}>Relatar Incidente</Text>
       </TouchableOpacity>

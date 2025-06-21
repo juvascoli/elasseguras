@@ -20,6 +20,8 @@ export default function RootLayout() {
       <Stack.Screen name="uploadMedida" options={{headerTitle: '', headerShown: false }} />
       <Stack.Screen name="home" options={{ headerShown: false }} />
       <Stack.Screen name="homeFake" options={{ headerShown: false }} />
+      <Stack.Screen name="login" options={{ headerTitle: '' }} />
+      <Stack.Screen name="relatarIncidente" options={{ headerTitle: '' }} />
 
 
     </Stack>
